@@ -5,12 +5,14 @@
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js",
+    "dev": "nodemon src/app.js --exec babel-node --presets @babel/preset-env",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dan Hawkyard",
   "license": "ISC",
   "dependencies": {
+    "@babel/node": "^7.19.1",
+    "@babel/preset-env": "^7.19.1",
     "express": "^4.18.1",
     "swagger-ui-express": "^4.5.0"
   },
