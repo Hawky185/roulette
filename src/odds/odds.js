@@ -5,10 +5,17 @@ export const allOdds = [
     },
     {
         type: "colour",
-        odds: "1/1"
+        odds: [
+            { red: "1/1"},
+            { black: "1/1"},
+            { green: "17/1"}
+        ]
     },
     {
         type: "odd/even",
-        odds: "1/1"
+        odds: [
+            { odd: "1/1"},
+            { even: "1/1"}
+        ]
     },
 ];

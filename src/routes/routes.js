@@ -1,13 +1,14 @@
 import express from "express";
 
 import oddsHandler from "../odds/oddsHandler";
+import betsHandler from "../bets/betsHandler";
 
 const router = express.Router();
 
 const routes = {
     alive: '/alive',
     odds: '/odds',
-    postBets: '/player/bets'
+    bets: '/player/bets'
 };
 
 /**
@@ -54,8 +55,17 @@ router.get(routes.alive, (req, res) => {
  *                   odds:
  *                     type: string
  *                     example: 35/1
+ *       404:
+ *         description: The odds could not be found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: string
+ *               example: "No odds found"
  */
 router.get(routes.odds, oddsHandler);
+
+router.post(routes.bets, betsHandler);
 
 
 

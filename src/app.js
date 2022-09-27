@@ -1,4 +1,5 @@
 import express from "express";
+import bodyParser from "body-parser";
 
 import router from "./routes/routes";
 
@@ -7,10 +8,9 @@ import { swaggerSpec } from "../docs/swagger";
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+app.use(bodyParser.json());
+app.use(router);
 
 app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.use(router);
-
-app.listen(PORT, () => console.log(`App listening at port ${PORT}`));
+app.listen(3000, () => console.log("App listening at port 3000"));
