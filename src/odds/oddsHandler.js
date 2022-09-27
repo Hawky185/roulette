@@ -1,7 +1,7 @@
 import { allOdds } from "./odds";
 
 const oddsHandler = async (req, res) => {
-    (allOdds && allOdds.length) ?
+    allOdds ?
         res.status(200).send({odds: allOdds}) :
         res.status(404).send({odds: "No odds found"});
 };

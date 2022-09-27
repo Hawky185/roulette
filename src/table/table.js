@@ -43,4 +43,6 @@ export const tableNumbers = tableValues.map(({number}) => (number));
 
 export const tableColours = tableValues.map(({colour}) => (colour));
 
-
+export const spin = () => {
+    return tableValues[Math.floor(Math.random() * tableValues.length)];
+};

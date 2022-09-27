@@ -1,21 +1,17 @@
-export const allOdds = [
-    {
-        type: "number",
-        odds: "35/1"
+export const allOdds = {
+    number: "35/1",
+    colour: {
+        red: "1/1",
+        black: "1/1",
+        green: "17/1"
     },
-    {
-        type: "colour",
-        odds: [
-            { red: "1/1"},
-            { black: "1/1"},
-            { green: "17/1"}
-        ]
-    },
-    {
-        type: "odd/even",
-        odds: [
-            { odd: "1/1"},
-            { even: "1/1"}
-        ]
-    },
-];
+    oddEven : "1/1"
+};
+
+export const getBetOdds = (bet) => {
+    const type = bet.type;
+    if (type === "colour") {
+        return allOdds.colour[bet.value];
+    }
+    return allOdds[bet.type];
+};

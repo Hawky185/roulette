@@ -13,4 +13,4 @@ app.use(router);
 
 app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.listen(3000, () => console.log("App listening at port 3000"));
+app.listen(3001, () => console.log("App listening at port 3001"));
