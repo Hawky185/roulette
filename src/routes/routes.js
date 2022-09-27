@@ -2,13 +2,15 @@ import express from "express";
 
 import oddsHandler from "../odds/oddsHandler";
 import betsHandler from "../bets/betsHandler";
+import tableHandler from "../table/tableHandler";
 
 const router = express.Router();
 
 const routes = {
-    alive: '/alive',
-    odds: '/odds',
-    bets: '/player/bets'
+    alive: "/alive",
+    odds: "/odds",
+    table: "/table",
+    bets: "/player/bets"
 };
 
 /**
@@ -45,16 +47,26 @@ router.get(routes.alive, (req, res) => {
  *         content:
  *           application/json:
  *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   type:
- *                     type: string
- *                     example: number
- *                   odds:
- *                     type: string
- *                     example: 35/1
+ *               type: object
+ *               properties:
+ *                 number:
+ *                   type: string
+ *                   example: 35/1
+ *                 colour:
+ *                   type: object
+ *                   properties:
+ *                     red:
+ *                       type: string
+ *                       example: 1/1
+ *                     black:
+ *                       type: string
+ *                       example: 1/1
+ *                     green:
+ *                       type: string
+ *                       example: 17/1
+ *                 oddEven:
+ *                   type: string
+ *                   example: 1/1
  *       404:
  *         description: The odds could not be found
  *         content:
@@ -64,6 +76,38 @@ router.get(routes.alive, (req, res) => {
  *               example: "No odds found"
  */
 router.get(routes.odds, oddsHandler);
+
+/**
+ * @swagger
+ * /table:
+ *   get:
+ *     summary: table
+ *     description: returns a summary of the table and the different numbers and colours
+ *     responses:
+ *       200:
+ *         description: The table has been successfully returned
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   number:
+ *                     type: string
+ *                     example: 19
+ *                   colour:
+ *                     type: string
+ *                     example: red
+ *       404:
+ *         description: The table could not be found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: string
+ *               example: "No table values found"
+ */
+router.get(routes.table, tableHandler);
 
 router.post(routes.bets, betsHandler);
 
