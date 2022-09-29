@@ -1,8 +1,6 @@
 import {spin} from "../table/table";
 import {calculateBetsReturn, validateBets} from "./bets";
 
-
-
 const betsHandler = async (req, res) => {
     const bets = req.body;
     if (!validateBets(bets)) {

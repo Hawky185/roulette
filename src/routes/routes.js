@@ -109,10 +109,66 @@ router.get(routes.odds, oddsHandler);
  */
 router.get(routes.table, tableHandler);
 
+/**
+ * @swagger
+ * /player/bets:
+ *   post:
+ *     summary: bets
+ *     description: Submit one or more bets and see the outcome
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: array
+ *             items:
+ *               type: object
+ *               properties:
+ *                 type:
+ *                   type: string
+ *                   example: number
+ *                 value:
+ *                   type: string
+ *                   example: 15
+ *                 stake:
+ *                   type: number
+ *                   example: 30
+ *     responses:
+ *       200:
+ *         description: The bets have been successfully submitted and the result has been returned
+ *         content:
+ *           application/json:
+ *             schema:
+ *             type: array
+ *             items:
+ *               type: object
+ *               properties:
+ *                 type:
+ *                   type: string
+ *                   example: number
+ *                 value:
+ *                   type: string
+ *                   example: 15
+ *                 stake:
+ *                   type: number
+ *                   example: 30
+ *                 odds:
+ *                   type: string
+ *                   example: 35/1
+ *                 isWinner:
+ *                   type: boolean
+ *                   example: true
+ *                 winnings:
+ *                   type: number
+ *                   example: 1080
+ *       400:
+ *         description: The submitted bets were not valid
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: string
+ *               example: "invalid bets"
+ */
 router.post(routes.bets, betsHandler);
-
-
-
-
 
 export default router;

@@ -2,24 +2,27 @@
   "name": "roulette",
   "version": "1.0.0",
   "description": "API for a Roulette Game",
-  "main": "src/app.js",
+  "main": "src/App.js",
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js --exec babel-node --presets @babel/preset-env",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node -r esm src/App.js",
+    "dev": "nodemon --exec npm start",
+    "test": "jest node test/"
   },
   "author": "Dan Hawkyard",
-  "license": "ISC",
+  "license": "UNLICENSED",
   "dependencies": {
-    "@babel/node": "^7.19.1",
-    "@babel/preset-env": "^7.19.1",
+    "body-parser": "latest",
+    "esm": "^3.2.25",
     "express": "^4.18.1",
     "swagger-jsdoc": "^6.2.5",
-    "swagger-ui-express": "^4.5.0",
-    "body-parser": "latest"
+    "swagger-ui-express": "^4.5.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.19.3",
+    "expect": "latest",
+    "jest": "^29.1.1",
     "nodemon": "^2.0.20",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "supertest": "^6.2.4"
   }
 }

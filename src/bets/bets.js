@@ -55,6 +55,8 @@ const calculateIsWinner = (winningValue, bet) => {
             return isWinningColour(winningValue.colour, bet.value);
         case "oddEven":
             return isWinningOddEven(winningValue.number, bet.value);
+        default:
+            return false;
     }
 };
 
