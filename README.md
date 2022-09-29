@@ -21,3 +21,8 @@ In order to run the application locally with hot reloading for local dev run the
 The application contains swagger documentation that is served via the browser UI. This can be found at the following address
 
 `localhost:3000/swagger`
+
+### Testing
+In order to run the tests run the following
+
+`npm test`
